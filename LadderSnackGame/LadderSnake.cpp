@@ -14,7 +14,7 @@ LadderSnake::LadderSnake(int players)
 	{
 		playersPos.push_back(0);
 		curPlayers.push(i);
-		winners.insert(pair<int, uint32_t> (i + 1, -1));
+		winners.insert(pair<int, uint32_t> (i, -1));
 	}
 }
 
@@ -76,7 +76,7 @@ int LadderSnake::play()
 		}
 
 		cout << endl;
-		winners[player] = ++winPosCount;
+		winners[player] = winPosCount++;
 	}
 	else
 	{
@@ -85,13 +85,13 @@ int LadderSnake::play()
 
 	if (players == winPosCount + 1)
 	{
-		cout << "\nLadder Snake game result!!!" << endl;
+		cout << "Ladder Snake game result!!!" << endl;
 		
-		for (int i = 0; i < winners.size(); i++)
+		for (int i = 0; i < players; i++)
 		{
 			if (winners[i] != -1)
 			{
-				cout << "Player " << i + 1 << " got " << winners[i] << " position." << endl;
+				cout << "Player " << i + 1 << " got " << winners[i] + 1 << " position." << endl;
 			}
 			else
 			{
